@@ -12,12 +12,28 @@ public class Capacitacion {
 	private LocalTime duracion;
 	private int cantidadAsistentes;
 	private int duracionMinutos;
+	/**
+	 * Se define la Clase Cliente con el parámetro cliente para entender que cada
+	 * capacitación puede tener asociado un cliente.
+	 */
 	private Cliente cliente;
 
 	public Capacitacion() {
 
 	}
 
+	/**
+	 * Clase capacitación en donde se definen las variables a utilizar segun
+	 * requerimiento del cliente.
+	 * 
+	 * @param identificador
+	 * @param rut
+	 * @param diaSemana
+	 * @param hora
+	 * @param lugar
+	 * @param duracion
+	 * @param cantidadAsistentes
+	 */
 	public Capacitacion(int identificador, int rut, String diaSemana, LocalTime hora, String lugar, LocalTime duracion,
 			int cantidadAsistentes) {
 		super();
@@ -47,11 +63,6 @@ public class Capacitacion {
 	public void establecerDuracion() {
 		Validadores validadores = new Validadores();
 		this.setDuracionMinutos(validadores.convertirDuracionAMinutos());
-	}
-
-	public String mostrarDetalle() {
-		return "La capacitación será en: " + getLugar() + ", a las " + getHora() + ", del día " + getDiaSemana()
-				+ " y durará " + getDuracionMinutos();
 	}
 
 	/* ---- Getters and Setters ---- */
@@ -128,4 +139,8 @@ public class Capacitacion {
 		this.duracionMinutos = duracionMinutos;
 	}
 
+	public String mostrarDetalle() {
+		return "La capacitación será en: " + getLugar() + ", a las " + getHora() + ", del día " + getDiaSemana()
+				+ " y durará " + getDuracionMinutos();
+	}
 }

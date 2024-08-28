@@ -6,18 +6,38 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
+/**
+ * Clase para la validación de la lógica que el cliente solicitaba.
+ * 
+ * @author BastianEspinosa
+ * @version 1.0
+ * @since 1.1
+ */
 public class Validadores {
 
-	// ----------------------------- Declaraciones útiles Globales //
-	// ----------------------------- //
+	/**
+	 * Se definieron declaraciones globales para que puedan ser utilizadas en cada
+	 * método creado.
+	 */
 
 	Scanner leer = new Scanner(System.in);
 	private DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
 
-	// ----------------------------- Refactorización -----------------------------//
-
-	// Método genérico para validar la longitud de una cadena
+	/**
+	 * En un inicio el código no se refactorizó, pero tras un análisis era
+	 * conveniente hacer este proceso ya que permitia eliminar codigo duplicado. De
+	 * esta forma se optimizó y se parametrizó segun los requerimientos
+	 * 
+	 * @param minLength    Se define como la cantidad mínima de caracteres que debe
+	 *                     poseer un String
+	 * @param maxLength    Se define como la cantidadmáxima de caracteres que debe
+	 *                     poseer un String
+	 * @param mensajeError Error por defecto que arrojará el método si no cumple las
+	 *                     condiciones específicas.
+	 * @return Retorna el valor ingresado que se utilizará en las diferentes
+	 *         opciones del menú.
+	 */
 
 	private String validadorCadena(int minLength, int maxLength, String mensajeError) {
 		while (true) {
@@ -30,6 +50,12 @@ public class Validadores {
 		}
 	}
 
+	/**
+	 * Utilización del genérico para la validación de la cadena.
+	 * 
+	 * @return Retorna el valor String con un minimo de 10 y maximo de 50
+	 *         caracteres.
+	 */
 	public String validadorCadena10a50() {
 		return validadorCadena(10, 50, "La longitud debe ser entre 10 y 50 caracteres.");
 	}
@@ -50,6 +76,12 @@ public class Validadores {
 		return validadorCadena(1, 70, "La longitud debe ser entre 1 y 70 caracteres.");
 	}
 
+	/**
+	 * Método genérico para validación de fecha a ingresar.
+	 * 
+	 * @return Retorna un LocalDate cuando se ingresa una fecha por String mal
+	 *         formateada.
+	 */
 	public LocalDate validadorFecha() {
 		while (true) {
 			System.out.println("Formato de ingreso de fecha DD/mm/aaa");
@@ -63,6 +95,11 @@ public class Validadores {
 		}
 	}
 
+	/**
+	 * Idem método anterior.
+	 * 
+	 * @return
+	 */
 	public LocalTime validadorHora() {
 		while (true) {
 			String horaInput = leer.nextLine();
@@ -74,6 +111,13 @@ public class Validadores {
 		}
 	}
 
+	/**
+	 * Se crea este método para validad la edad del usuario, puesto que si se
+	 * realizaba con la diferencia de año actual y año de nacimiento, el programa no
+	 * entendería si el usuario ya tuvo su cumpleaños o no.
+	 * 
+	 * @return Retorna la edad respetando si el usuario ya tuvo su cumpleaños o no.
+	 */
 	public int validadorEdad() {
 		LocalDate fechaNacimiento = validadorFecha();
 		LocalDate fechaHoy = LocalDate.now();
@@ -109,6 +153,11 @@ public class Validadores {
 		}
 	}
 
+	/**
+	 * Recibe un parámetro tipo Entero y lo devuelve en String.
+	 * 
+	 * @return Retorna un String según las especificaciones del cliente.
+	 */
 	public String validadorAprobacion() {
 		while (true) {
 			int aprobacion = leer.nextInt();
@@ -126,6 +175,11 @@ public class Validadores {
 		}
 	}
 
+	/**
+	 * Recibe un parámetro tipo Entero y lo devuelve en String.
+	 * 
+	 * @return Retorna un String según las especificaciones del cliente.
+	 */
 	public String validadorSistemaSalud() {
 		while (true) {
 			System.out.println("Ingrese el sistema de salud: 1 para Fonasa, 2 para Isapre");
@@ -142,6 +196,13 @@ public class Validadores {
 		}
 	}
 
+	/**
+	 * Se convierte la duración de la capacitación de horas a minutos. Manipula la
+	 * duración ingresada como String, se transforma utilizando el método validar
+	 * hora y se calcula la cantidad de minutos.
+	 * 
+	 * @return Devuelve un entero con la cantidad de minutos de la capacitación.
+	 */
 	public int convertirDuracionAMinutos() {
 		LocalTime duracion = validadorHora();
 
