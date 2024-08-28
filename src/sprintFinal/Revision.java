@@ -7,6 +7,11 @@ public class Revision {
 	private String nombreRevision;
 	private String detalleRevision;
 	private int estado;
+
+	/**
+	 * Cada instancia de Revisión estará asociada a la Clase revisión, es por esto
+	 * que se define de esta forma
+	 */
 	private VisitaTerreno visitaTerreno;
 
 	public Revision() {
@@ -73,5 +78,14 @@ public class Revision {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public String toString() {
+		return "Revision [identificadorRevision=" + identificadorRevision + ", identificadorVisita="
+				+ identificadorVisita + ", nombreRevision=" + nombreRevision + ", detalleRevision=" + detalleRevision
+				+ ", estado=" + estado + ", visitaTerreno=" + visitaTerreno + "]";
+	}
+	
+	
 
 }

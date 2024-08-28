@@ -4,7 +4,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 
+ * @author BastianEspinosa
+ * @version 1.0
+ * @since 1.1
+ */
+
 public class Contenedor {
+
+	/**
+	 * Listas necesarias para poder almacenar la información de usuarios y
+	 * capacitaciones.
+	 */
 	private List<Asesoria> listaAsesorias;
 
 	private List<Capacitacion> listaCapacitaciones;
@@ -36,25 +48,25 @@ public class Contenedor {
 	}
 
 	public void eliminarUsuario(String run) {
-	    int runInt = Integer.parseInt(run);  // Convertir el RUN ingresado a un número entero
-	    System.out.println("Buscando usuario con RUN: " + runInt);
-	    
-	    Iterator<Asesoria> iterator = listaAsesorias.iterator();
-	    while (iterator.hasNext()) {
-	        Asesoria asesoria = iterator.next();
-	        if (asesoria instanceof Usuario) {
-	            Usuario usuario = (Usuario) asesoria;
-	            System.out.println("Comparando con usuario RUN: " + usuario.getRun());
-	            
-	            if (usuario.getRun() == runInt) {  // Comparación directa de números
-	                System.out.println("Usuario encontrado. Eliminando...");
-	                iterator.remove();
-	                System.out.println("Usuario con RUN " + run + " eliminado.");
-	                return;
-	            }
-	        }
-	    }
-	    System.out.println("Usuario con RUN " + run + " no encontrado.");
+		int runInt = Integer.parseInt(run);
+		System.out.println("Buscando usuario con RUN: " + runInt);
+		Iterator<Asesoria> iterator = listaAsesorias.iterator();
+		while (iterator.hasNext()) {
+
+			Asesoria asesoria = iterator.next();
+			if (asesoria instanceof Usuario) {
+				Usuario usuario = (Usuario) asesoria;
+				System.out.println("Comparando con usuario RUN: " + usuario.getRun());
+
+				if (usuario.getRun() == runInt) { // Comparación directa de números
+					System.out.println("Usuario encontrado. Eliminando...");
+					iterator.remove();
+					System.out.println("Usuario con RUN " + run + " eliminado.");
+					return;
+				}
+			}
+		}
+		System.out.println("Usuario con RUN " + run + " no encontrado.");
 	}
 
 	public void listarUsuarios() {

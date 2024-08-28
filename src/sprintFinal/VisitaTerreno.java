@@ -8,6 +8,10 @@ public class VisitaTerreno {
 	private String horaVisita;
 	private String lugar;
 	private String comentarios;
+	/**
+	 * Al definir la Clase Clientes con los objetos clientes nos aseguramos que cada
+	 * instancia de VisitaTerreno esté asociada a un objeto de Cliente.
+	 */
 	public Cliente cliente;
 
 	public VisitaTerreno() {
@@ -84,4 +88,12 @@ public class VisitaTerreno {
 		this.comentarios = comentarios;
 	}
 
+	@Override
+	public String toString() {
+		return "VisitaTerreno [identificadorVisita=" + identificadorVisita + ", rut=" + rut + ", diaVisita=" + diaVisita
+				+ ", horaVisita=" + horaVisita + ", lugar=" + lugar + ", comentarios=" + comentarios + ", cliente="
+				+ cliente + "]";
+	}
+	
+	
 }

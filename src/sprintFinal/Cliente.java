@@ -4,6 +4,11 @@ import java.time.LocalDate;
 
 public class Cliente extends Usuario implements Asesoria {
 
+	/**
+	 * Clase cliente que hereda parámetros de la clase Usuario y que utiliza
+	 * Asesoria como interfaz.
+	 */
+
 	private int rut;
 	private String nombres;
 	private String apellidos;
@@ -17,6 +22,24 @@ public class Cliente extends Usuario implements Asesoria {
 	public Cliente() {
 
 	}
+
+	/**
+	 * Las variables heredadas permiten asignar los valores de Usuario a cada
+	 * cliente a ingresar.
+	 * 
+	 * @param nombre          Variable heredada de la clase Usuario.
+	 * @param fechaNacimiento Variable heredada de la clase Usuario.
+	 * @param run             Variable heredada de la clase Usuario.
+	 * @param rut
+	 * @param nombres
+	 * @param apellidos
+	 * @param telefono
+	 * @param afp
+	 * @param sistemaSalud
+	 * @param direccion
+	 * @param comuna
+	 * @param edad
+	 */
 
 	public Cliente(String nombre, LocalDate fechaNacimiento, int run, int rut, String nombres, String apellidos,
 			Long telefono, String afp, String sistemaSalud, String direccion, String comuna, int edad) {
@@ -124,9 +147,9 @@ public class Cliente extends Usuario implements Asesoria {
 
 	@Override
 	public String toString() {
-		return "Cliente [rut=" + rut + ", nombres=" + nombres + ", apellidos=" + apellidos + ", telefono=" + telefono
-				+ ", afp=" + afp + ", sistemaSalud=" + sistemaSalud + ", direccion=" + direccion + ", comuna=" + comuna
-				+ ", edad=" + edad + "]";
+		return super.toString() + "Cliente [rut=" + rut + ", nombres=" + nombres + ", apellidos=" + apellidos
+				+ ", telefono=" + telefono + ", afp=" + afp + ", sistemaSalud=" + sistemaSalud + ", direccion="
+				+ direccion + ", comuna=" + comuna + ", edad=" + edad + "]";
 	}
 
 }

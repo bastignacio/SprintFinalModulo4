@@ -25,7 +25,6 @@ public class Usuario {
 	public int mostrarEdad(String fechaNacimiento) {
 
 		LocalDate fechaHoy = LocalDate.now();
-		/* Se agrego al final Date para diferenciar el String del LocalDate */
 		LocalDate fechaNacimientoDate = LocalDate.parse(fechaNacimiento, formato);
 		int edadCalculada = fechaHoy.getYear() - fechaNacimientoDate.getYear();
 
@@ -67,4 +66,11 @@ public class Usuario {
 		this.run = run;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [formato=" + formato + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", run="
+				+ run + "]";
+	}
+	
+	
 }

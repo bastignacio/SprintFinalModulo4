@@ -1,5 +1,12 @@
 package sprintFinal;
 
+
+/**
+ * 
+ * @author BastianEspinosa
+ * @version 1.0
+ * @since 1.1
+ */
 public class Accidente {
 
 	private int identificadorAccidente;
@@ -11,9 +18,25 @@ public class Accidente {
 	private String consecuencias;
 	private Cliente cliente;
 
+	
+	/**
+	 * Constructor sin parámetros.
+	 */
 	public Accidente () {
 		
 	}
+	
+	/**
+	 * Constructor con paráemetros definidos.
+	 * @param identificadorAccidente 
+	 * @param rut
+	 * @param fechaAccidente
+	 * @param horaAccidente
+	 * @param lugar
+	 * @param origen
+	 * @param consecuencias
+	 * @param cliente
+	 */
 	
 	public Accidente(int identificadorAccidente, int rut, String fechaAccidente, String horaAccidente, String lugar,
 			String origen, String consecuencias, Cliente cliente) {
@@ -97,5 +120,14 @@ public class Accidente {
 	public void setConsecuencias(String consecuencias) {
 		this.consecuencias = consecuencias;
 	}
+
+	@Override
+	public String toString() {
+		return "Accidente [identificadorAccidente=" + identificadorAccidente + ", rut=" + rut + ", fechaAccidente="
+				+ fechaAccidente + ", horaAccidente=" + horaAccidente + ", lugar=" + lugar + ", origen=" + origen
+				+ ", consecuencias=" + consecuencias + ", cliente=" + cliente + "]";
+	}
+	
+	
 
 }
